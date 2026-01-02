@@ -1,0 +1,10 @@
+[Unit]
+Description=MCP Server Socket
+
+[Socket]
+ListenStream=5002
+BindIPv6Only=both
+
+[Install]
+WantedBy=sockets.target
+

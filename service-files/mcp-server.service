@@ -1,0 +1,15 @@
+[Unit]
+Description=Model Context Protocol (MCP) Server
+After=network.target
+
+[Service]
+Type=simple
+User=djr
+WorkingDirectory=/home/djr/ai-server/mcp-server
+ExecStart=/bin/bash /home/djr/ai-server/mcp-server/start.sh
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+

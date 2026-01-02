@@ -1,0 +1,61 @@
+from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from faster_whisper import WhisperModel
+import tempfile
+import requests
+import os
+
+app = FastAPI()
+
+# ---------------------------------------------------------
+# ⭐ Enable CORS so browsers can call /stt through Front Door
+# ---------------------------------------------------------
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],          # You can restrict this later
+    allow_credentials=False,
+    allow_methods=["POST", "OPTIONS"],
+    allow_headers=["*"],
+)
+
+# Load Whisper model once at startup
+whisper_model = WhisperModel("base", device="cpu", compute_type="int8")
+
+def transcribe_file(file_path: str) -> str:
+    segments, info = whisper_model.transcribe(file_path, beam_size=5, best_of=5)
+    return "".join(seg.text for seg in segments).strip()
+
+def call_ollama(model: str, prompt: str) -> str:
+    url = "http://localhost:11434/api/generate"
+    payload = {"model": model, "prompt": prompt, "stream": False}
+    resp = requests.post(url, json=payload)
+    return resp.json().get("response", "")
+
+@app.post("/stt")
+async def stt(audio: UploadFile = File(...)):
+    suffix = os.path.splitext(audio.filename)[1] or ".webm"
+    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+        tmp.write(await audio.read())
+        tmp_path = tmp.name
+
+    transcript = transcribe_file(tmp_path)
+    os.remove(tmp_path)
+
+    return {"transcript": transcript}
+
+@app.post("/voice-chat")
+async def voice_chat(audio: UploadFile = File(...), model: str = "llama3.1:8b"):
+    suffix = os.path.splitext(audio.filename)[1] or ".webm"
+    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+        tmp.write(await audio.read())
+        tmp_path = tmp.name
+
+    transcript = transcribe_file(tmp_path)
+    os.remove(tmp_path)
+
+    llm_prompt = f"User said (via voice): {transcript}"
+    llm_response = call_ollama(model, llm_prompt)
+
+    return {"model": model, "transcript": transcript, "response": llm_response}
+

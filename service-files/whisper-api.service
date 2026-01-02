@@ -1,0 +1,15 @@
+[Unit]
+Description=FastAPI Whisper STT + LLM Gateway
+After=network.target
+
+[Service]
+User=djr
+Group=djr
+WorkingDirectory=/home/djr/ai-server/whisper-stt
+ExecStart=/home/djr/ai-server/whisper-stt/start.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

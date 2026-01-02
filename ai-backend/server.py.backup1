@@ -1,0 +1,100 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+import requests
+import logging
+import os
+from logging.handlers import RotatingFileHandler
+from fastapi import Request
+import time
+from fastapi.responses import StreamingResponse
+import json
+
+# Configuration file config/config.py
+from config import config as cfg
+
+
+# Configure logging
+os.makedirs(os.path.dirname(cfg.LOG_PATH), exist_ok=True)
+handler = RotatingFileHandler(
+    cfg.LOG_PATH,
+    maxBytes=cfg.LOG_MAX_BYTES,
+    backupCount=cfg.LOG_BACKUP_COUNT,
+    encoding="utf-8"
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[handler]
+)
+
+app = FastAPI()
+
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+
+    # Extract details
+    client_ip = request.client.host
+    method = request.method
+    url = request.url.path
+
+    logging.info(f"Incoming request: {client_ip} {method} {url}")
+
+    # Process request
+    response = await call_next(request)
+
+    duration = (time.time() - start_time) * 1000  # ms
+    status = response.status_code
+
+    logging.info(
+        f"Completed request: {client_ip} {method} {url} "
+        f"Status={status} Duration={duration:.2f}ms"
+    )
+
+    return response
+
+class ChatRequest(BaseModel):
+    model: str | None = None
+    prompt: str
+
+@app.post("/chat/stream")
+async def chat_stream(req: ChatRequest):
+    model = req.model or cfg.DEFAULT_MODEL
+
+    logging.info(f"Streaming chat request: model={model}, prompt={req.prompt[:80]}...")
+
+    payload = {
+        "model": model,
+        "prompt": req.prompt,
+        "stream": True
+    }
+
+    def stream_llm():
+        try:
+            with requests.post(cfg.LLM_URL, json=payload, stream=True) as r:
+                r.raise_for_status()
+
+                for line in r.iter_lines():
+                    if not line:
+                        continue
+
+                    try:
+                        data = json.loads(line.decode("utf-8"))
+                        token = data.get("response", "")
+                        yield token
+                    except Exception as e:
+                        logging.error(f"Stream decode error: {e}")
+                        continue
+
+        except Exception as e:
+            logging.error(f"LLM streaming failed: {e}")
+            yield f"[ERROR] {str(e)}"
+
+    return StreamingResponse(stream_llm(), media_type="text/plain")
+
+# Health keepalive function
+@app.get("/health")
+def health():
+    logging.info("Health check called.")
+    return {"status": "ok"}
