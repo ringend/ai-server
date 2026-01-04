@@ -1,0 +1,8 @@
+sudo docker run -d \
+  -p 8200:8200 \
+  --add-host=host.docker.internal:host-gateway \
+  -v /home/djr/ai-server/docker-gw/config:/app/config \
+  -v /home/djr/ai-server/docker-gw/logs:/app/logs \
+  --restart unless-stopped \
+  --name ai-be-gen-p8200 \
+  ai-be-gen-p8200

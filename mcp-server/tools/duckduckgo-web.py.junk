@@ -1,0 +1,69 @@
+import subprocess
+import json
+import uuid
+
+def call_duckduckgo(query: str):
+    proc = subprocess.Popen(
+        ["docker", "run", "-i", "--rm", "mcp/duckduckgo"],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+
+    # 1. Send initialize
+    init_id = str(uuid.uuid4())
+    init_request = {
+        "jsonrpc": "2.0",
+        "id": init_id,
+        "method": "initialize",
+        "params": {}
+    }
+
+    proc.stdin.write(json.dumps(init_request) + "\n")
+    proc.stdin.flush()
+
+    # Read until we get the initialize response
+    for line in proc.stdout:
+        try:
+            resp = json.loads(line)
+            if resp.get("id") == init_id:
+                break
+        except:
+            continue
+
+    # 2. Now send the actual search request
+    request_id = str(uuid.uuid4())
+    request = {
+        "jsonrpc": "2.0",
+        "id": request_id,
+        "method": "search",
+        "params": {"query": query}
+    }
+
+    proc.stdin.write(json.dumps(request) + "\n")
+    proc.stdin.flush()
+
+    # 3. Read the search response
+    for line in proc.stdout:
+        try:
+            response = json.loads(line)
+            if response.get("id") == request_id:
+                return response.get("result")
+        except:
+            continue
+
+    return {"error": "No response from DuckDuckGo MCP"}
+
+tool = {
+    "name": "duckduckgo_web",
+    "description": "Search DuckDuckGo using the DuckDuckGo MCP server",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "query": {"type": "string"}
+        },
+        "required": ["query"]
+    },
+    "handler": call_duckduckgo
+}

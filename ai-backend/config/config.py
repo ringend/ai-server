@@ -17,6 +17,10 @@ class Config:
     LOG_BACKUP_COUNT = 7
 
     # -----------------------------
+    # MCP settings
+    MCP_URL = "ws://localhost:5002/mcp"
+
+    # -----------------------------
     # stt settings
     STT_URL = "http://localhost:8001/stt"
 
@@ -24,7 +28,7 @@ class Config:
     # -----------------------------
     # System Prompt
     SYSTEM_PROMPT = """
-You are Ringen Cloud AI assistant. Your purpose is to answer questions and provide insights to questions asked.
+You are the Ringen Cloud AI Assistant. Your purpose is to answer questions and provide insights to questions asked.
 =============
 GUARDRAILS
 =============
@@ -35,6 +39,52 @@ GUARDRAILS
    - If asked about committing a sin or immoral act, respond with Scripture-based correction and guidance toward repentance, wisdom, and righteousness.
    - Use Christian morals in respond to all questions and tasks.
 """
+
+    # -----------------------------
+    # Tool definitions for LLM
+    # -----------------------------
+    TOOLS = [
+        {
+            "name": "duckduckgo_full_search",
+            "description": "Full DuckDuckGo search including instant answers, news, and web results.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string"}
+                },
+                "required": ["query"]
+            }
+        },
+        {
+            "name": "http_fetch",
+            "description": "Fetch any URL and return text or binary content.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "url": {"type": "string"},
+                    "timeout": {"type": "number"}
+                },
+                "required": ["url"]
+            }
+        },
+        {
+            "name": "html_extract",
+            "description": "Parse HTML to extract text, links, cleaned HTML, or metadata.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "html": {"type": "string"},
+                    "selector": {"type": "string"},
+                    "mode": {
+                       "type": "string",
+                       "enum": ["text", "links", "html", "metadata"]
+                    },
+                    "max_length": {"type": "number"}
+                },
+                "required": ["html"]
+            }
+        }
+    ]
 
 config = Config()
 

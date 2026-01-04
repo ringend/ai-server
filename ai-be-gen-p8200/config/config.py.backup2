@@ -1,0 +1,22 @@
+# Configuration for the ai-backend server
+
+import os
+
+BASE_DIR = "/home/djr/ai-server/ai-backend"
+
+# LLM settings.
+LLM_URL = "http://localhost:11434/api/chat"
+DEFAULT_MODEL = "llama3.1:8b"
+
+# Log settings
+LOG_PATH = os.path.join(BASE_DIR, "logs", "backend.log")
+LOG_MAX_BYTES = 10 * 1024 * 1024   # 10 MB
+LOG_BACKUP_COUNT = 7      
+
+
+# Default Prompt
+class Config:
+    SYSTEM_PROMPT = (
+        "You are Ringen Cloud AI assistant. "
+    )
+
