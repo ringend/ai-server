@@ -33417,3 +33417,237 @@
 2026-01-04 22:43:40,893 [INFO] Incoming request: 127.0.0.1 GET /health
 2026-01-04 22:43:40,893 [INFO] Health check called.
 2026-01-04 22:43:40,893 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:43:50,935 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:43:50,936 [INFO] Health check called.
+2026-01-04 22:43:50,936 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:43:51,956 [INFO] Incoming request: 147.243.255.207 HEAD /
+2026-01-04 22:43:51,956 [INFO] Completed request: 147.243.255.207 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:43:59,878 [INFO] Incoming request: 147.243.201.81 HEAD /
+2026-01-04 22:43:59,878 [INFO] Completed request: 147.243.201.81 HEAD / Status=404 Duration=0.32ms
+2026-01-04 22:44:00,986 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:44:00,986 [INFO] Health check called.
+2026-01-04 22:44:00,987 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.58ms
+2026-01-04 22:44:11,034 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:44:11,034 [INFO] Health check called.
+2026-01-04 22:44:11,035 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:44:21,090 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:44:21,091 [INFO] Health check called.
+2026-01-04 22:44:21,091 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.52ms
+2026-01-04 22:44:31,136 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:44:31,136 [INFO] Health check called.
+2026-01-04 22:44:31,136 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:44:41,182 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:44:41,183 [INFO] Health check called.
+2026-01-04 22:44:41,183 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.57ms
+2026-01-04 22:44:44,879 [INFO] Incoming request: 147.243.252.231 HEAD /
+2026-01-04 22:44:44,879 [INFO] Completed request: 147.243.252.231 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:44:51,228 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:44:51,229 [INFO] Health check called.
+2026-01-04 22:44:51,229 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:45:01,276 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:45:01,277 [INFO] Health check called.
+2026-01-04 22:45:01,277 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.59ms
+2026-01-04 22:45:06,444 [INFO] Incoming request: 147.243.226.148 HEAD /
+2026-01-04 22:45:06,444 [INFO] Completed request: 147.243.226.148 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:45:11,322 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:45:11,323 [INFO] Health check called.
+2026-01-04 22:45:11,323 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:45:14,218 [INFO] Incoming request: 147.243.239.49 HEAD /
+2026-01-04 22:45:14,219 [INFO] Completed request: 147.243.239.49 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:45:21,367 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:45:21,367 [INFO] Health check called.
+2026-01-04 22:45:21,367 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.57ms
+2026-01-04 22:45:26,914 [INFO] Incoming request: 147.243.247.119 HEAD /
+2026-01-04 22:45:26,914 [INFO] Completed request: 147.243.247.119 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:45:31,409 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:45:31,410 [INFO] Health check called.
+2026-01-04 22:45:31,410 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:45:41,451 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:45:41,451 [INFO] Health check called.
+2026-01-04 22:45:41,452 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:45:47,683 [INFO] Incoming request: 147.243.227.166 HEAD /
+2026-01-04 22:45:47,683 [INFO] Completed request: 147.243.227.166 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:45:51,495 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:45:51,495 [INFO] Health check called.
+2026-01-04 22:45:51,495 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:46:01,546 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:46:01,546 [INFO] Health check called.
+2026-01-04 22:46:01,546 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.82ms
+2026-01-04 22:46:11,590 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:46:11,590 [INFO] Health check called.
+2026-01-04 22:46:11,590 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:46:16,742 [INFO] Incoming request: 147.243.250.183 HEAD /
+2026-01-04 22:46:16,742 [INFO] Completed request: 147.243.250.183 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:46:21,637 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:46:21,637 [INFO] Health check called.
+2026-01-04 22:46:21,637 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.58ms
+2026-01-04 22:46:27,816 [INFO] Incoming request: 147.243.242.41 HEAD /
+2026-01-04 22:46:27,816 [INFO] Completed request: 147.243.242.41 HEAD / Status=404 Duration=0.34ms
+2026-01-04 22:46:31,691 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:46:31,692 [INFO] Health check called.
+2026-01-04 22:46:31,692 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:46:36,312 [INFO] Incoming request: 147.243.183.87 HEAD /
+2026-01-04 22:46:36,312 [INFO] Completed request: 147.243.183.87 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:46:41,740 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:46:41,740 [INFO] Health check called.
+2026-01-04 22:46:41,740 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.59ms
+2026-01-04 22:46:45,932 [INFO] Incoming request: 147.243.40.108 HEAD /
+2026-01-04 22:46:45,933 [INFO] Completed request: 147.243.40.108 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:46:51,784 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:46:51,784 [INFO] Health check called.
+2026-01-04 22:46:51,784 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.58ms
+2026-01-04 22:47:01,829 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:47:01,829 [INFO] Health check called.
+2026-01-04 22:47:01,829 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.56ms
+2026-01-04 22:47:11,871 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:47:11,871 [INFO] Health check called.
+2026-01-04 22:47:11,871 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.58ms
+2026-01-04 22:47:13,232 [INFO] Incoming request: 147.243.224.173 HEAD /
+2026-01-04 22:47:13,232 [INFO] Completed request: 147.243.224.173 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:47:20,795 [INFO] Incoming request: 147.243.230.10 HEAD /
+2026-01-04 22:47:20,795 [INFO] Completed request: 147.243.230.10 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:47:21,924 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:47:21,924 [INFO] Health check called.
+2026-01-04 22:47:21,924 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:47:31,970 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:47:31,970 [INFO] Health check called.
+2026-01-04 22:47:31,970 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.53ms
+2026-01-04 22:47:42,014 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:47:42,014 [INFO] Health check called.
+2026-01-04 22:47:42,014 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:47:47,386 [INFO] Incoming request: 147.243.253.71 HEAD /
+2026-01-04 22:47:47,387 [INFO] Completed request: 147.243.253.71 HEAD / Status=404 Duration=0.32ms
+2026-01-04 22:47:52,055 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:47:52,056 [INFO] Health check called.
+2026-01-04 22:47:52,056 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:48:02,106 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:48:02,106 [INFO] Health check called.
+2026-01-04 22:48:02,106 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:48:11,068 [INFO] Incoming request: 147.243.255.207 HEAD /
+2026-01-04 22:48:11,068 [INFO] Completed request: 147.243.255.207 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:48:12,147 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:48:12,147 [INFO] Health check called.
+2026-01-04 22:48:12,148 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:48:22,190 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:48:22,191 [INFO] Health check called.
+2026-01-04 22:48:22,191 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:48:30,145 [INFO] Incoming request: 147.243.201.81 HEAD /
+2026-01-04 22:48:30,145 [INFO] Completed request: 147.243.201.81 HEAD / Status=404 Duration=0.33ms
+2026-01-04 22:48:32,233 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:48:32,233 [INFO] Health check called.
+2026-01-04 22:48:32,233 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:48:42,277 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:48:42,277 [INFO] Health check called.
+2026-01-04 22:48:42,277 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.57ms
+2026-01-04 22:48:52,324 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:48:52,325 [INFO] Health check called.
+2026-01-04 22:48:52,325 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.82ms
+2026-01-04 22:49:02,376 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:49:02,376 [INFO] Health check called.
+2026-01-04 22:49:02,377 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.57ms
+2026-01-04 22:49:12,423 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:49:12,424 [INFO] Health check called.
+2026-01-04 22:49:12,424 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.53ms
+2026-01-04 22:49:22,475 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:49:22,475 [INFO] Health check called.
+2026-01-04 22:49:22,476 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.57ms
+2026-01-04 22:49:31,221 [INFO] Incoming request: 147.243.252.231 HEAD /
+2026-01-04 22:49:31,221 [INFO] Completed request: 147.243.252.231 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:49:32,525 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:49:32,526 [INFO] Health check called.
+2026-01-04 22:49:32,526 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.52ms
+2026-01-04 22:49:42,573 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:49:42,574 [INFO] Health check called.
+2026-01-04 22:49:42,574 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.53ms
+2026-01-04 22:49:47,574 [INFO] Incoming request: 147.243.239.49 HEAD /
+2026-01-04 22:49:47,574 [INFO] Completed request: 147.243.239.49 HEAD / Status=404 Duration=0.33ms
+2026-01-04 22:49:52,622 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:49:52,622 [INFO] Health check called.
+2026-01-04 22:49:52,622 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:50:02,681 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:50:02,681 [INFO] Health check called.
+2026-01-04 22:50:02,681 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.60ms
+2026-01-04 22:50:04,890 [INFO] Incoming request: 147.243.227.166 HEAD /
+2026-01-04 22:50:04,891 [INFO] Completed request: 147.243.227.166 HEAD / Status=404 Duration=0.29ms
+2026-01-04 22:50:12,725 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:50:12,725 [INFO] Health check called.
+2026-01-04 22:50:12,725 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.56ms
+2026-01-04 22:50:22,776 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:50:22,776 [INFO] Health check called.
+2026-01-04 22:50:22,776 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.62ms
+2026-01-04 22:50:27,848 [INFO] Incoming request: 147.243.247.119 HEAD /
+2026-01-04 22:50:27,848 [INFO] Completed request: 147.243.247.119 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:50:32,831 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:50:32,832 [INFO] Health check called.
+2026-01-04 22:50:32,832 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:50:32,938 [INFO] Incoming request: 147.243.226.148 HEAD /
+2026-01-04 22:50:32,938 [INFO] Completed request: 147.243.226.148 HEAD / Status=404 Duration=0.26ms
+2026-01-04 22:50:42,667 [INFO] Incoming request: 147.243.242.41 HEAD /
+2026-01-04 22:50:42,667 [INFO] Completed request: 147.243.242.41 HEAD / Status=404 Duration=0.33ms
+2026-01-04 22:50:42,879 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:50:42,879 [INFO] Health check called.
+2026-01-04 22:50:42,879 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:50:44,357 [INFO] Incoming request: 147.243.250.183 HEAD /
+2026-01-04 22:50:44,357 [INFO] Completed request: 147.243.250.183 HEAD / Status=404 Duration=0.35ms
+2026-01-04 22:50:52,924 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:50:52,924 [INFO] Health check called.
+2026-01-04 22:50:52,924 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:51:02,973 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:51:02,974 [INFO] Health check called.
+2026-01-04 22:51:02,974 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.53ms
+2026-01-04 22:51:13,031 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:51:13,032 [INFO] Health check called.
+2026-01-04 22:51:13,032 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.58ms
+2026-01-04 22:51:18,973 [INFO] Incoming request: 147.243.183.87 HEAD /
+2026-01-04 22:51:18,974 [INFO] Completed request: 147.243.183.87 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:51:23,076 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:51:23,077 [INFO] Health check called.
+2026-01-04 22:51:23,077 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.53ms
+2026-01-04 22:51:23,807 [INFO] Incoming request: 147.243.40.108 HEAD /
+2026-01-04 22:51:23,807 [INFO] Completed request: 147.243.40.108 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:51:33,125 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:51:33,125 [INFO] Health check called.
+2026-01-04 22:51:33,125 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:51:33,727 [INFO] Incoming request: 147.243.224.173 HEAD /
+2026-01-04 22:51:33,727 [INFO] Completed request: 147.243.224.173 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:51:43,169 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:51:43,170 [INFO] Health check called.
+2026-01-04 22:51:43,170 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.88ms
+2026-01-04 22:51:53,225 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:51:53,226 [INFO] Health check called.
+2026-01-04 22:51:53,226 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.56ms
+2026-01-04 22:52:03,275 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:52:03,275 [INFO] Health check called.
+2026-01-04 22:52:03,275 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.57ms
+2026-01-04 22:52:07,797 [INFO] Incoming request: 147.243.253.71 HEAD /
+2026-01-04 22:52:07,797 [INFO] Completed request: 147.243.253.71 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:52:13,323 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:52:13,323 [INFO] Health check called.
+2026-01-04 22:52:13,323 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.54ms
+2026-01-04 22:52:23,365 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:52:23,365 [INFO] Health check called.
+2026-01-04 22:52:23,365 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.56ms
+2026-01-04 22:52:33,413 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:52:33,413 [INFO] Health check called.
+2026-01-04 22:52:33,413 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.56ms
+2026-01-04 22:52:40,161 [INFO] Incoming request: 147.243.230.10 HEAD /
+2026-01-04 22:52:40,161 [INFO] Completed request: 147.243.230.10 HEAD / Status=404 Duration=0.34ms
+2026-01-04 22:52:43,460 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:52:43,461 [INFO] Health check called.
+2026-01-04 22:52:43,461 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:52:46,967 [INFO] Incoming request: 147.243.201.81 HEAD /
+2026-01-04 22:52:46,968 [INFO] Completed request: 147.243.201.81 HEAD / Status=404 Duration=0.31ms
+2026-01-04 22:52:53,505 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:52:53,505 [INFO] Health check called.
+2026-01-04 22:52:53,505 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.63ms
+2026-01-04 22:53:03,552 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:53:03,552 [INFO] Health check called.
+2026-01-04 22:53:03,553 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.55ms
+2026-01-04 22:53:06,096 [INFO] Incoming request: 147.243.255.207 HEAD /
+2026-01-04 22:53:06,096 [INFO] Completed request: 147.243.255.207 HEAD / Status=404 Duration=0.30ms
+2026-01-04 22:53:13,600 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:53:13,601 [INFO] Health check called.
+2026-01-04 22:53:13,601 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.56ms
+2026-01-04 22:53:23,645 [INFO] Incoming request: 127.0.0.1 GET /health
+2026-01-04 22:53:23,645 [INFO] Health check called.
+2026-01-04 22:53:23,646 [INFO] Completed request: 127.0.0.1 GET /health Status=200 Duration=0.58ms
