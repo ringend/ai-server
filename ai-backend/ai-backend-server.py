@@ -1,24 +1,16 @@
-# ==================================
-# AI Backend Server
-
-# Standard library
+from fastapi import FastAPI, Request
+from pydantic import BaseModel
+from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import UploadFile, File, HTTPException
+import requests
+import logging
 import os
 import time
 import json
-import logging
-import asyncio
-
-# Third‑party libraries
-import requests
-import websockets
-from fastapi import FastAPI, Request, UploadFile, File, HTTPException
-from fastapi.responses import StreamingResponse
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from logging.handlers import RotatingFileHandler
 
-# ======================================
-# Load config variables from config/config.py
+# Load config variables
 from config.config import config as cfg
 
 
@@ -44,7 +36,7 @@ logging.basicConfig(
 app = FastAPI()
 
 # ===================================
-# CORS Handling
+# CORS Handling 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # or restrict to ["http://localhost:1313"]
@@ -77,69 +69,17 @@ async def log_requests(request: Request, call_next):
 
     return response
 
-
-# ================================================
-# Connection to MCP Server
-class MCPClient:
-    def __init__(self, url=cfg.MCP_URL):
-        self.url = url
-        self.ws = None
-        self.request_id = 0
-
-    async def connect(self):
-        logging.info(f"Connecting to MCP server at {self.url} ...")
-        self.ws = await websockets.connect(self.url)
-        resp = await self.initialize()
-        logging.info(f"MCP initialize response: {resp}")
-
-    async def initialize(self):
-        self.request_id += 1
-        await self.ws.send(json.dumps({
-            "jsonrpc": "2.0",
-            "id": self.request_id,
-            "method": "initialize",
-            "params": {}
-        }))
-        return await self.ws.recv()
-
-    async def call_tool(self, name, arguments):
-        self.request_id += 1
-        await self.ws.send(json.dumps({
-            "jsonrpc": "2.0",
-            "id": self.request_id,
-            "method": "tools.call",
-            "params": {
-                "name": name,
-                "arguments": arguments
-            }
-        }))
-        response = await self.ws.recv()
-        return json.loads(response)
-
-
-# Create a global MCP client instance
-mcp_client = MCPClient()
-
-
-# Startup event to connect MCP once
-@app.on_event("startup")
-async def startup_event():
-    await mcp_client.connect()
-
-
 # =====================================
 # Chat Request Model
 class ChatRequest(BaseModel):
     session_id: str
     message: str
 
-
 # ======================================
 # In-memory Conversation store
 conversations = {}
 
 SYSTEM_PROMPT = cfg.SYSTEM_PROMPT
-
 
 # =====================================================
 # Chat stt (voice) endpoint
@@ -187,11 +127,10 @@ async def chat(req: ChatRequest):
         "content": user_message
     })
 
-    # Build initial payload for Ollama
+    # Build payload for Ollama
     payload = {
         "model": cfg.DEFAULT_MODEL,
         "messages": conversations[session_id],
-        "tools": cfg.TOOLS,
         "stream": True
     }
 
@@ -199,7 +138,6 @@ async def chat(req: ChatRequest):
         assistant_reply = ""
 
         try:
-            # First LLM call (may or may not request tools)
             with requests.post(cfg.LLM_URL, json=payload, stream=True) as r:
                 r.raise_for_status()
 
@@ -209,75 +147,12 @@ async def chat(req: ChatRequest):
 
                     try:
                         data = json.loads(line.decode("utf-8"))
+                        token = data.get("message", {}).get("content", "")
+                        assistant_reply += token
+                        yield token
                     except Exception as e:
                         logging.error(f"Stream decode error: {e}")
                         continue
-
-                    msg = data.get("message", {})
-
-                    # -----------------------------
-                    # TOOL CALL HANDLING
-                    # -----------------------------
-                    if msg.get("tool"):
-                        tool_name = msg["tool"]["name"]
-                        tool_args = msg["tool"]["arguments"]
-
-                        logging.info(f"Tool call requested: {tool_name} {tool_args}")
-
-                        # Call MCP tool (sync wrapper around async)
-                        try:
-                            tool_result = asyncio.run(
-                                mcp_client.call_tool(tool_name, tool_args)
-                            )
-                        except RuntimeError:
-                            # If an event loop is already running in this thread, use it
-                            loop = asyncio.get_event_loop()
-                            tool_result = loop.run_until_complete(
-                                mcp_client.call_tool(tool_name, tool_args)
-                            )
-
-                        logging.info(f"Tool result for {tool_name}: {tool_result}")
-
-                        # Append tool result to conversation
-                        conversations[session_id].append({
-                            "role": "tool",
-                            "tool_name": tool_name,
-                            "content": json.dumps(tool_result)
-                        })
-
-                        # Restart LLM with tool result included
-                        next_payload = {
-                            "model": cfg.DEFAULT_MODEL,
-                            "messages": conversations[session_id],
-                            "stream": True
-                        }
-
-                        with requests.post(cfg.LLM_URL, json=next_payload, stream=True) as r2:
-                            r2.raise_for_status()
-                            for line2 in r2.iter_lines():
-                                if not line2:
-                                    continue
-                                try:
-                                    data2 = json.loads(line2.decode("utf-8"))
-                                except Exception as e:
-                                    logging.error(f"Stream decode error (second pass): {e}")
-                                    continue
-
-                                token2 = data2.get("message", {}).get("content", "")
-                                if token2:
-                                    assistant_reply += token2
-                                    yield token2
-
-                        # After handling the tool call and second pass, end original stream
-                        return
-
-                    # -----------------------------
-                    # NORMAL TEXT TOKEN
-                    # -----------------------------
-                    token = msg.get("content", "")
-                    if token:
-                        assistant_reply += token
-                        yield token
 
         except Exception as e:
             logging.error(f"LLM streaming failed: {e}")
@@ -299,4 +174,3 @@ async def chat(req: ChatRequest):
 def health():
     logging.info("Health check called.")
     return {"status": "ok"}
-
