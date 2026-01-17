@@ -7,7 +7,7 @@ MODEL2="${1:-phi4}"
 # Ollama API endpoints
 HEALTH_URL="http://localhost:11434/api/tags"
 GENERATE_URL="http://localhost:11434/api/generate"
-GENERATE_URL2="http://localhost:11434/api/generate"
+GENERATE_URL2="http://localhost:11435/api/generate"
 
 # Wait until Ollama is responding
 echo "Waiting for Ollama to start..."

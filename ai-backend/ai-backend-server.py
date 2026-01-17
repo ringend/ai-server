@@ -1,3 +1,4 @@
+import token
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.responses import StreamingResponse
@@ -8,7 +9,10 @@ import logging
 import os
 import time
 import json
+import asyncio
+import websockets
 from logging.handlers import RotatingFileHandler
+#Test 1
 
 # Load config variables
 from config.config import config as cfg
@@ -104,6 +108,27 @@ async def stt(file: UploadFile = File(...)):
         logging.error(f"STT error: {e}")
         raise HTTPException(status_code=500, detail="Failed to transcribe audio")
 
+# ======================================================
+# MCP Tool Call
+async def call_mcp_tool(name, arguments):
+    try:
+        async with websockets.connect(cfg.MCP_URL) as ws:
+            await ws.send(json.dumps({
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools.call",
+                "params": {
+                    "name": name,
+                    "arguments": arguments
+                }
+            }))
+            response = await ws.recv()
+            data = json.loads(response)
+            return data.get("result", {})
+    except Exception as e:
+        logging.error(f"MCP tool call failed: {e}")
+        return {"error": str(e)}
+
 
 # ======================================================
 # CHAT ENDPOINT (STREAMING)
@@ -147,9 +172,54 @@ async def chat(req: ChatRequest):
 
                     try:
                         data = json.loads(line.decode("utf-8"))
+
                         token = data.get("message", {}).get("content", "")
                         assistant_reply += token
-                        yield token
+                        
+                        # === MCP TOOL CALL DETECTION ===
+                        try:
+                            clean = assistant_reply.strip()
+
+                            # Remove Markdown fences if present
+                            if clean.startswith("```"):
+                                clean = clean.split("```", 1)[1].strip()
+                                if clean.endswith("```"):
+                                    clean = clean.rsplit("```", 1)[0].strip()
+
+                            parsed = json.loads(clean)
+
+                            if isinstance(parsed, dict) and "tool" in parsed:
+                                tool_name = parsed["tool"]
+                                tool_args = parsed.get("arguments", {}) 
+                                # Call MCP tool
+                                result = asyncio.run(call_mcp_tool(tool_name, tool_args))
+
+                                # Add tool result to conversation
+                                conversations[session_id].append({
+                                    "role": "tool",
+                                    "content": json.dumps(result)
+                                })
+
+                                # Restart LLM with tool result
+                                followup_payload = {
+                                    "model": cfg.DEFAULT_MODEL,
+                                    "messages": conversations[session_id],
+                                    "stream": True
+                                }   
+                                with requests.post(cfg.LLM_URL, json=followup_payload, stream=True) as r2:
+                                    for line2 in r2.iter_lines():
+                                        if not line2:
+                                            continue
+                                        data2 = json.loads(line2.decode("utf-8"))
+                                        token2 = data2.get("message", {}).get("content", "")
+                                        yield token2
+                                return
+                        except Exception:
+                            pass
+
+                        # Normal streaming
+                        yield token     
+
                     except Exception as e:
                         logging.error(f"Stream decode error: {e}")
                         continue

@@ -7,8 +7,8 @@ BASE_DIR = "/home/djr/ai-server/ai-backend"
 class Config:
     # -----------------------------
     # LLM settings
-    LLM_URL = "http://localhost:11434/api/chat"
-    DEFAULT_MODEL = "llama3.1:8b"
+    LLM_URL = "http://localhost:11435/api/chat"
+    DEFAULT_MODEL = "phi4"
 
     # -----------------------------
     # Logging settings
@@ -36,6 +36,45 @@ GUARDRAILS
    - Never encourage, endorse, or assist in any action that is harmful, abusive, violent, unlawful, or immoral.
    - If a user expresses intent to harm themselves or others, respond with pastoral compassion, remind them that you cannot provide crisis support, and encourage them to seek immediate help from trusted people, pastors, or local authorities.
    - Do not provide instructions, advice, or strategies related to self-harm, violence, illegal activity, or any behavior that contradicts Christian moral teaching.
+
+===========================
+AVAILABLE TOOLS
+===========================
+You have access to the following tools:
+
+duckduckgo_full_search:
+    Full DuckDuckGo search including instant answers, news, and web results.
+    Parameters:
+        query: string
+
+http_fetch:
+    Fetch any URL and return text or binary content.
+    Parameters:
+        url: string
+        timeout: number
+
+html_extract:
+    Parse HTML to extract text, links, cleaned HTML, or metadata.
+    Parameters:
+        html: string
+        selector: string
+        mode: text | links | html | metadata
+        max_length: number
+
+===========================
+TOOL CALLING FORMAT
+===========================
+When you need to use a tool, respond ONLY with JSON:
+
+{
+  "tool": "<tool_name>",
+  "arguments": {
+      ... arguments ...
+  }
+}
+
+Do NOT add commentary or markdown.
+
 """
 
     # -----------------------------

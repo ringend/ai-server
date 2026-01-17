@@ -1,24 +1,16 @@
-# ==================================
-# AI Backend Server
-
-# Standard library
+from fastapi import FastAPI, Request
+from pydantic import BaseModel
+from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import UploadFile, File, HTTPException
+import requests
+import logging
 import os
 import time
 import json
-import logging
-import asyncio
-
-# Third‑party libraries
-import requests
-import websockets
-from fastapi import FastAPI, Request, UploadFile, File, HTTPException
-from fastapi.responses import StreamingResponse
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from logging.handlers import RotatingFileHandler
 
-# ======================================
-# Load config variables fron config/config.py
+# Load config variables
 from config.config import config as cfg
 
 
@@ -76,51 +68,6 @@ async def log_requests(request: Request, call_next):
     )
 
     return response
-
-# ================================================
-# Connection to MCP Server
-class MCPClient:
-    def __init__(self, url=cfg.MCP_URL):
-        self.url = url
-        self.ws = None
-        self.request_id = 0
-
-    async def connect(self):
-        self.ws = await websockets.connect(self.url)
-        await self.initialize()
-
-    async def initialize(self):
-        self.request_id += 1
-        await self.ws.send(json.dumps({
-            "jsonrpc": "2.0",
-            "id": self.request_id,
-            "method": "initialize",
-            "params": {}
-        }))
-        return await self.ws.recv()
-
-    async def call_tool(self, name, arguments):
-        self.request_id += 1
-        await self.ws.send(json.dumps({
-            "jsonrpc": "2.0",
-            "id": self.request_id,
-            "method": "tools.call",
-            "params": {
-                "name": name,
-                "arguments": arguments
-            }
-        }))
-        response = await self.ws.recv()
-        return json.loads(response)
-
-# Create a global MCP client instance
-mcp_client = MCPClient()
-
-# Startup event to connect MCP once
-@app.on_event("startup")
-async def startup_event():
-    await mcp_client.connect()
-
 
 # =====================================
 # Chat Request Model

@@ -1,0 +1,293 @@
+[
+    {
+        "Id": "133084a4075bfabdddf7c5423d40ad376d1747270fa456b8d5c067ad5c4e60ec",
+        "Created": "2026-01-03T23:19:14.931743156Z",
+        "Path": "uvicorn",
+        "Args": [
+            "ai-backend-server:app",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "8200"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 31987,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-01-14T22:24:14.105087281Z",
+            "FinishedAt": "2026-01-14T22:24:13.024020896Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-01-14T22:26:04.711702299Z",
+                        "End": "2026-01-14T22:26:04.766298653Z",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r{\"status\":\"ok\"}100    15  100    15    0     0   7708      0 --:--:-- --:--:-- --:--:-- 15000\n"
+                    },
+                    {
+                        "Start": "2026-01-14T22:26:14.766827461Z",
+                        "End": "2026-01-14T22:26:14.810138853Z",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100    15  100    15    0     0   8333      0 --:--:-- --:--:-- --:--:-- 15000\n{\"status\":\"ok\"}"
+                    },
+                    {
+                        "Start": "2026-01-14T22:26:24.811578474Z",
+                        "End": "2026-01-14T22:26:24.859124951Z",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100    15  100    15    0     0   9733      0 --:--:-- --:--:-- --:--:-- 15000\n{\"status\":\"ok\"}"
+                    },
+                    {
+                        "Start": "2026-01-14T22:26:34.860274426Z",
+                        "End": "2026-01-14T22:26:34.902359561Z",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100    15  100    15    0     0   9014      0 --:--:-- --:--:-- --:--:-- 15000\n{\"status\":\"ok\"}"
+                    },
+                    {
+                        "Start": "2026-01-14T22:26:44.903758083Z",
+                        "End": "2026-01-14T22:26:44.949967497Z",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100    15  100    15    0     0   8556      0 --:--:-- --:--:-- --:--:-- 15000\n{\"status\":\"ok\"}"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:65eb5f7901a8cfc2daec4d71ec3cae65aafff6ba4d80901713cd6caccb6ee390",
+        "ResolvConfPath": "/var/lib/docker/containers/133084a4075bfabdddf7c5423d40ad376d1747270fa456b8d5c067ad5c4e60ec/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/133084a4075bfabdddf7c5423d40ad376d1747270fa456b8d5c067ad5c4e60ec/hostname",
+        "HostsPath": "/var/lib/docker/containers/133084a4075bfabdddf7c5423d40ad376d1747270fa456b8d5c067ad5c4e60ec/hosts",
+        "LogPath": "/var/lib/docker/containers/133084a4075bfabdddf7c5423d40ad376d1747270fa456b8d5c067ad5c4e60ec/133084a4075bfabdddf7c5423d40ad376d1747270fa456b8d5c067ad5c4e60ec-json.log",
+        "Name": "/ai-be-gen-p8200",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/djr/ai-server/docker-gw/config:/app/config",
+                "/home/djr/ai-server/docker-gw/logs:/app/logs"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "8200/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8200"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                44,
+                120
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [
+                "host.docker.internal:host-gateway"
+            ],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/djr/ai-server/docker-gw/config",
+                "Destination": "/app/config",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/djr/ai-server/docker-gw/logs",
+                "Destination": "/app/logs",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "133084a4075b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8200/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.12",
+                "PYTHON_SHA256=fb85a13414b028c49ba18bbd523c2d055a30b56b18b92ce454ea2c51edc656c4"
+            ],
+            "Cmd": [
+                "uvicorn",
+                "ai-backend-server:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8200"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost:8200/health || exit 1"
+                ],
+                "Interval": 10000000000,
+                "Timeout": 3000000000,
+                "Retries": 3
+            },
+            "Image": "ai-be-gen-p8200",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "SandboxID": "b6a263ca49ad70e7d744af54a309e8f13d1e5e740a76a0be55afd4b393093b5d",
+            "SandboxKey": "/var/run/docker/netns/b6a263ca49ad",
+            "Ports": {
+                "8200/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8200"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8200"
+                    }
+                ]
+            },
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "6be52f49879b5a88597e89314a8152908b2c5d729622a103e2c4dc4fee3db8b5",
+                    "EndpointID": "6e23c2500d5655741657a47c45f284f319dad219daee42b4c7e51b3081ce4c2e",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "1a:c7:51:9e:da:94",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "fd00:dead:beef::1",
+                    "GlobalIPv6Address": "fd00:dead:beef::2",
+                    "GlobalIPv6PrefixLen": 48,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:c5fdbe509b423824d6826bcb1a698848298e5ceed492f125e93e1c08656850a7",
+            "size": 2009,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

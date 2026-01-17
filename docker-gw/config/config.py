@@ -8,7 +8,8 @@ BASE_DIR = "/app"
 class Config:
     # -----------------------------
     # LLM settings
-    LLM_URL = "http://host.docker.internal:11434/api/chat"
+    # LLM_URL = "http://host.docker.internal:11434/api/chat"
+    LLM_URL = "http://s1-aga.ringen.cloud:11434/api/chat"
     DEFAULT_MODEL = "llama3.1:8b"
 
     # -----------------------------
