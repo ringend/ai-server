@@ -7,8 +7,8 @@ BASE_DIR = "/home/djr/ai-server/ai-backend"
 class Config:
     # -----------------------------
     # LLM settings
-    LLM_URL = "http://localhost:11435/api/chat"
-    DEFAULT_MODEL = "phi4"
+    LLM_URL = "http://s1-aga.ringen.cloud:11435/api/chat"
+    DEFAULT_MODEL = "phi4-optimized"
 
     # -----------------------------
     # Logging settings
